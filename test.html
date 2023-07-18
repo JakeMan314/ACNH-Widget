@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock with Date</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url(https://i.imgur.com/HkyKf4o.png);
+      background-size: cover;
+      font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+    }
+
+    .clock {
+      text-align: center;
+      font-size: 96px; /* Increased font size for the clock */
+      color: #877358; /* Set the text color to #877358 */
+    }
+
+    .time {
+      font-weight: bold;
+    }
+
+    .date {
+      font-size: 48px; /* Increased font size for the date */
+      margin-top: 20px; /* Adjusted margin to give more space */
+      color: #877358; /* Set the text color to #877358 */
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="time" id="time"></div>
+    <div class="date" id="date"></div>
+  </div>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock with Date</title>
+  <style>
+    body {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url('https://i.imgur.com/YLQ08cM.png'); /* Replace with the actual image URL */
+      background-size: 75%;
+      background-position: center; /* Adjust the position of the background */
+      background-repeat: no-repeat; /* Prevent the background from repeating */
+      font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+    }
+
+    .clock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 96px;
+      color: #877358;
+    }
+
+    .time {
+      font-weight: bold;
+    }
+
+    .date {
+      font-size: 48px;
+      margin-top: 20px;
+      color: #877358;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="time" id="time"></div>
+    <div class="date" id="date"></div>
+  </div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+
+      // Convert to 12-hour format
+      hours = hours % 12 || 12;
+
+      const timeString = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)} ${ampm}`;
+      document.getElementById('time').textContent = timeString;
+
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+      const dateString = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+      document.getElementById('date').textContent = dateString;
+    }
+
+    function formatTime(time) {
+      return time.toString().padStart(2, '0');
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
+</body>
+</html>
+
+</body>
+</html>
